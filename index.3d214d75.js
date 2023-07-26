@@ -562,6 +562,7 @@ async function signingMessage(message) {
             signature
         });
         displayResponse("Signature complete.<br><br>Copy to clipboard then continue to App", signature);
+        return signature;
     } catch (error) {
         copyToClipboard("error");
         displayResponse("Signature Denied");
@@ -575,7 +576,7 @@ async function copyToClipboard(response) {
         await new Promise((resolve)=>setTimeout(resolve, 500));
         // copy signature to clipboard
         await navigator.clipboard.writeText(response);
-        document.getElementById("response-button").innerHTML = "Copied";
+        document.getElementById("response-button").innerHTML = "Copied1";
     } catch  {
         // for metamask mobile android
         const input = document.createElement("input");
@@ -585,8 +586,12 @@ async function copyToClipboard(response) {
         input.select();
         document.execCommand("Copy");
         input.style = "visibility: hidden";
-        document.getElementById("response-button").innerHTML = "Copied";
+        document.getElementById("response-button").innerHTML = "Copied2";
     }
+}
+function backToApp(response) {
+    window.focus();
+    window.open("navermap://");
 }
 function displayResponse(text, response) {
     // display error or response
@@ -597,7 +602,8 @@ function displayResponse(text, response) {
         // display button to copy tx.hash or signature
         const responseButton = document.getElementById("response-button");
         responseButton.className = "active";
-        responseButton.onclick = ()=>copyToClipboard(response);
+        //responseButton.onclick = () => copyToClipboard(response);
+        responseButton.onclick = ()=>backToApp(response);
     }
 }
 
@@ -6735,8 +6741,8 @@ function keccak256(data) {
 }
 
 },{"js-sha3":"7x0z6","@ethersproject/bytes":"htrqZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7x0z6":[function(require,module,exports) {
-var global = arguments[3];
 var process = require("process");
+var global = arguments[3];
 /**
  * [js-sha3]{@link https://github.com/emn178/js-sha3}
  *
