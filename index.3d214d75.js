@@ -588,7 +588,7 @@ async function copyToClipboard(response) {
         document.execCommand("Copy");
         input.style = "visibility: hidden";
         document.getElementById("response-button").innerHTML = "Copied2";
-        window.open("navermap://");
+        window.location.href = "navermap://";
     }
 }
 function displayResponse(text, response) {
