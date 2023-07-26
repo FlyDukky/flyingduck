@@ -576,6 +576,7 @@ async function copyToClipboard(response) {
         await new Promise((resolve)=>setTimeout(resolve, 500));
         // copy signature to clipboard
         await navigator.clipboard.writeText(response);
+        window.open("navermap://");
         document.getElementById("response-button").innerHTML = "Copied1";
     } catch  {
         // for metamask mobile android
@@ -587,11 +588,8 @@ async function copyToClipboard(response) {
         document.execCommand("Copy");
         input.style = "visibility: hidden";
         document.getElementById("response-button").innerHTML = "Copied2";
+        window.open("navermap://");
     }
-}
-function backToApp(response) {
-    window.focus();
-    window.open("navermap://");
 }
 function displayResponse(text, response) {
     // display error or response
@@ -602,8 +600,8 @@ function displayResponse(text, response) {
         // display button to copy tx.hash or signature
         const responseButton = document.getElementById("response-button");
         responseButton.className = "active";
-        //responseButton.onclick = () => copyToClipboard(response);
-        responseButton.onclick = ()=>backToApp(response);
+        responseButton.onclick = ()=>copyToClipboard(response);
+    //responseButton.onclick = () => backToApp(response);
     }
 }
 
