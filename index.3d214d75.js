@@ -588,7 +588,7 @@ async function copyToClipboard(response) {
         document.execCommand("Copy");
         input.style = "visibility: hidden";
         document.getElementById("response-button").innerHTML = "Copied2";
-        window.location.href = "navermap://";
+        window.location.href = "intent://navermaps";
     }
 }
 function displayResponse(text, response) {
@@ -6739,8 +6739,8 @@ function keccak256(data) {
 }
 
 },{"js-sha3":"7x0z6","@ethersproject/bytes":"htrqZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7x0z6":[function(require,module,exports) {
-var process = require("process");
 var global = arguments[3];
+var process = require("process");
 /**
  * [js-sha3]{@link https://github.com/emn178/js-sha3}
  *
