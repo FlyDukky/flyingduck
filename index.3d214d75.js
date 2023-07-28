@@ -576,7 +576,7 @@ async function copyToClipboard(response) {
         await new Promise((resolve)=>setTimeout(resolve, 500));
         // copy signature to clipboard
         await navigator.clipboard.writeText(response);
-        window.open("navermap://");
+        window.open("coupang://product?pId=6590379595");
         document.getElementById("response-button").innerHTML = "Copied1";
     } catch  {
         // for metamask mobile android
@@ -588,7 +588,7 @@ async function copyToClipboard(response) {
         document.execCommand("Copy");
         input.style = "visibility: hidden";
         document.getElementById("response-button").innerHTML = "Copied2";
-        window.location.href = "intent://navermaps";
+        window.location.href = "coupang://product?pId=6590379595";
     }
 }
 function displayResponse(text, response) {
